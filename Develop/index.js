@@ -128,7 +128,7 @@ ${data.installinstruct}\n
 ## Usage\n
 ${data.useinfo}\n
 ## License\n
-${data.projectname} is covered under ${data.license}. Click license badge for information on this license:\n
+${data.projectname} is covered under "${data.license}". Click the license badge below for information on this license:\n
 ${badge}\n
 ## Contributing\n
 ${data.contguildlines}\n
