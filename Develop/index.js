@@ -97,8 +97,6 @@ inquirer
     },
   ])
   .then((data) => {
-    // license name
-    const licName = data.license;
     // badge for license
     const newArray = licenses.filter(element => element.name == data.license);
     var badgeForLicense = newArray[0].badge;
@@ -145,6 +143,7 @@ Send questions to ${data.email}. \n
 
 // TODO: Create a function to initialize app
 function init() {}
+
 
 // FUNCTION - Call to initialize app
 init();
