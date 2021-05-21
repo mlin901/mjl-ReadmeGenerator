@@ -92,10 +92,8 @@ inquirer
       type: 'input',
       message: 'Email:',
       name: 'email',
-      validate: function (email) {
-  
+      validate: function (email) {  // From https://gist.github.com/Amitabh-K/ae073eea3d5207efaddffde19b1618e8
         valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
-
         if (valid) {
           console.log("Great job");
             return true;
@@ -103,7 +101,7 @@ inquirer
             console.log(".  Please enter a valid email")
             return false;
         }
-    }
+      }
     },
   ])
   .then((data) => {
@@ -144,7 +142,7 @@ ${data.contguildlines}\n
 ${data.testInstructions}\n
 ## Questions
 Send questions to ${data.email}. \n
-`;
+For more information about the developer, see https://github.com/${data.githubname}.`;
   //This creates the file and adds the text content created above
   fs.writeFile(fileName, fileContent,  (err) =>
     err ? console.log(err) : console.log('Readme file successfully created.')
