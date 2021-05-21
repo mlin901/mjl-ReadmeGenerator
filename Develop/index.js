@@ -109,7 +109,7 @@ inquirer
     const newArray = licenses.filter(element => element.name == data.license);
     var badgeForLicense = newArray[0].badge;
     // filename
-    const filename = 'readme.md';
+    const filename = 'README.md';
     // Call to function that creates file
     writeToFile(filename, data, badgeForLicense);
   });
