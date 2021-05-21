@@ -2,12 +2,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-// Initial instruction for the user
-console.log("Enter information about your project.");
+ // Initial instruction for the user
+ console.log("Enter information about your project. This information will be used to generate a readme.md file in the current working directory. NOTE: If a readme.md file already exists in that directory, it will be overwritten.");
 
 // Array of questions for user input
-    // const questions = [];
-    // paginated list? Mult selections? E.g., https://github.com/SBoudrias/Inquirer.js/blob/master/packages/inquirer/examples/long-list.js
 const licenses = [
   { name: 'Apache 2.0 License', badge: `[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)` },
   { name: 'Boost Software License 1.0', badge: `[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)` },
@@ -90,10 +88,22 @@ inquirer
       message: 'GitHub user name:',
       name: 'githubname',
     },
-    {         // **** validate email format?
+    {       
       type: 'input',
       message: 'Email:',
       name: 'email',
+      validate: function (email) {
+  
+        valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+
+        if (valid) {
+          console.log("Great job");
+            return true;
+        } else {
+            console.log(".  Please enter a valid email")
+            return false;
+        }
+    }
     },
   ])
   .then((data) => {
@@ -141,9 +151,3 @@ Send questions to ${data.email}. \n
     );
 }
 
-// TODO: Create a function to initialize app
-function init() {}
-
-
-// FUNCTION - Call to initialize app
-init();
