@@ -95,10 +95,10 @@ inquirer
       validate: function (email) {  // From https://gist.github.com/Amitabh-K/ae073eea3d5207efaddffde19b1618e8
         valid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
         if (valid) {
-          console.log("Great job");
+          console.log(" - Valid email address");
             return true;
         } else {
-            console.log(".  Please enter a valid email")
+            console.log(".  Please enter a valid email address")
             return false;
         }
       }
@@ -141,7 +141,7 @@ ${data.contguildlines}\n
 ## Tests\n
 ${data.testInstructions}\n
 ## Questions
-Send questions to ${data.email}. \n
+Send questions to <${data.email}>. \n
 For more information about the developer, see https://github.com/${data.githubname}.`;
   //This creates the file and adds the text content created above
   fs.writeFile(fileName, fileContent,  (err) =>
